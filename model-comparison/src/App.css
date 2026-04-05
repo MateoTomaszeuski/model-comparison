@@ -1,0 +1,405 @@
+.app {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #e2e8f0;
+}
+
+.auth-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logged-in {
+  color: #6ee7b7;
+  font-size: 0.85rem;
+}
+
+.toggle-key {
+  padding: 0.4rem 0.6rem;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  background: #1e293b;
+  color: #94a3b8;
+  cursor: pointer;
+  font-size: 0.75rem;
+}
+
+/* Login form */
+.login-form {
+  max-width: 360px;
+  margin: 3rem auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.login-form h2 {
+  font-size: 1.1rem;
+  color: #94a3b8;
+  margin: 0 0 0.5rem;
+}
+
+.login-form input {
+  padding: 0.6rem 0.75rem;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  background: #1e293b;
+  color: #e2e8f0;
+  font-size: 0.95rem;
+}
+
+.login-form button {
+  padding: 0.6rem;
+  border: none;
+  border-radius: 6px;
+  background: #6366f1;
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.login-form button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Model selector */
+.model-selector {
+  margin-bottom: 1rem;
+}
+
+.model-selector h3 {
+  margin: 0 0 0.5rem;
+  font-size: 0.9rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
+
+.model-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.chip {
+  padding: 0.35rem 0.75rem;
+  border: 1px solid #334155;
+  border-radius: 9999px;
+  background: #1e293b;
+  color: #94a3b8;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.chip:hover {
+  border-color: #6366f1;
+  color: #c7d2fe;
+}
+
+.chip.selected {
+  background: #312e81;
+  border-color: #6366f1;
+  color: #c7d2fe;
+}
+
+/* Prompt form */
+.prompt-form {
+  margin-bottom: 1.5rem;
+}
+
+.prompt-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #334155;
+  border-radius: 8px;
+  background: #1e293b;
+  color: #e2e8f0;
+  font-size: 1rem;
+  font-family: inherit;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+.prompt-form textarea:focus {
+  outline: none;
+  border-color: #6366f1;
+}
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.form-actions button[type="submit"] {
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 6px;
+  background: #6366f1;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.form-actions button[type="submit"]:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.stop-btn {
+  padding: 0.5rem 1rem;
+  border: 1px solid #ef4444;
+  border-radius: 6px;
+  background: transparent;
+  color: #ef4444;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.hint {
+  color: #64748b;
+  font-size: 0.8rem;
+}
+
+/* Panels */
+.panels {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (max-width: 900px) {
+  .panels {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+.model-panel {
+  border: 1px solid #334155;
+  border-radius: 10px;
+  background: #1e293b;
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+}
+
+.model-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #334155;
+}
+
+.model-header h2 {
+  margin: 0;
+  font-size: 1rem;
+  color: #e2e8f0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.badge {
+  font-size: 0.75rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.badge.loading {
+  background: #312e81;
+  color: #a5b4fc;
+  animation: pulse 1.5s infinite;
+}
+
+.badge.done {
+  background: #064e3b;
+  color: #6ee7b7;
+}
+
+.badge.error-badge {
+  background: #7f1d1d;
+  color: #fca5a5;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Content area */
+.model-content {
+  flex: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  max-height: 60vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.model-content pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #cbd5e1;
+  flex: 1;
+}
+
+.model-content pre.placeholder {
+  color: #475569;
+}
+
+.generating {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: #94a3b8;
+  font-size: 0.9rem;
+  padding: 1rem 0;
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid #334155;
+  border-top-color: #6366f1;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Stats bar */
+.stats {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid #334155;
+  font-size: 0.75rem;
+  color: #64748b;
+}
+
+.stats span {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.error {
+  padding: 1rem;
+  color: #fca5a5;
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #334155;
+}
+
+.tab {
+  padding: 0.6rem 1.25rem;
+  border: none;
+  background: none;
+  color: #64748b;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: all 0.15s;
+}
+
+.tab:hover {
+  color: #cbd5e1;
+}
+
+.tab.active {
+  color: #c7d2fe;
+  border-bottom-color: #6366f1;
+}
+
+/* PDF upload */
+.pdf-upload-area {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
+.pdf-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+}
+
+.pdf-label input[type="file"] {
+  display: none;
+}
+
+.pdf-btn {
+  padding: 0.45rem 1rem;
+  border: 1px dashed #475569;
+  border-radius: 6px;
+  background: #1e293b;
+  color: #94a3b8;
+  font-size: 0.85rem;
+  transition: all 0.15s;
+}
+
+.pdf-label:hover .pdf-btn {
+  border-color: #6366f1;
+  color: #c7d2fe;
+}
+
+.pdf-filename {
+  color: #e2e8f0;
+  font-size: 0.85rem;
+}
+
+.pdf-info {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.8rem;
+  color: #6ee7b7;
+}
+
+/* Global timer */
+.global-timer {
+  text-align: center;
+  margin-top: 1rem;
+}
